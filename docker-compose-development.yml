@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-development
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/src/app
+  db:
+    image: mongo
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:
