@@ -7,12 +7,7 @@ pipeline {
   }
   stages {
     stage('build') {
-      agent {
-        dockerfile {
-          filename 'Dockerfile.prod'
-        }
-        
-      }
+      agent any
       steps {
         sh 'npm install'
       }
