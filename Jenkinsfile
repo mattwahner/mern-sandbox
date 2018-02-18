@@ -7,7 +7,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build('sandbox', './Dockerfile.prod')
+        app = docker.build('sandbox', '-f Dockerfile.prod .')
     }
 
     stage('Test image') {
