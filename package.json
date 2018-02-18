@@ -26,16 +26,18 @@
         "lint": "eslint --ext=js --ext=jsx .",
         "lint:fix": "eslint --ext=js --ext=jsx --fix .",
         "build": "npm run build:client && npm run build:server",
-        "build:client": "webpack -p",
-        "build:server": "babel -d ./build ./src/backend -s",
+        "build:client": "webpack --config webpack.client.config.js -p",
+        "build:server": "webpack --config webpack.server.config.js -p",
         "watch": "npm run watch:client & npm run watch:server",
-        "watch:client": "webpack --watch -d",
+        "watch:client": "webpack --config webpack.client.config.js --watch -d",
         "watch:server": "nodemon --exec babel-node -- ./src/backend/index.js",
-        "start": "node build/index.js",
-        "prod:up": "docker-compose up --build -d",
-        "dev:up":
-            "docker-compose -f docker-compose-development.yml up --build -d",
-        "down": "docker-compose down"
+        "start": "node server.js",
+        "up": "npm run dev:up",
+        "down": "npm run dev:down",
+        "prod:up": "docker-compose -f docker-compose.prod.yml up --build -d",
+        "dev:up": "docker-compose -f docker-compose.dev.yml up --build -d",
+        "prod:down": "docker-compose -f docker-compose.prod.yml down",
+        "dev:down": "docker-compose -f docker-compose.dev.yml down"
     },
     "dependencies": {
         "axios": "^0.17.1",
