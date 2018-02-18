@@ -10,9 +10,9 @@ node {
         app = docker.build('sandbox', '-f Dockerfile.prod .')
     }
 
-    stage('Test image') {
-        app.inside {
-            sh 'echo "tests passed"'
+    stage('Push image') {
+        docker.withRegistry('http://localhost:5000') {
+            app.push()
         }
     }
 }
