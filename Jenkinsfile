@@ -7,9 +7,8 @@ pipeline {
   }
   stages {
     stage('build') {
-      agent any
       steps {
-        sh 'npm install'
+        sh 'docker build -t sandbox -f Dockerfile.prod .'
       }
     }
   }
