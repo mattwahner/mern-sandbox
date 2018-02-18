@@ -1,0 +1,51 @@
+{
+    "name": "mern-sandbox",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/mattwahner/mern-sandbox.git",
+    "author": "Matthew Wahner <mattwahner@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-react": "^6.24.1",
+        "eslint": "^4.18.0",
+        "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-prettier": "^2.9.0",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-jsx-a11y": "^6.0.3",
+        "eslint-plugin-prettier": "^2.6.0",
+        "eslint-plugin-react": "^7.6.1",
+        "nodemon": "^1.15.0",
+        "prettier": "^1.10.2",
+        "webpack": "^3.11.0"
+    },
+    "scripts": {
+        "lint": "eslint --ext=js --ext=jsx .",
+        "lint:fix": "eslint --ext=js --ext=jsx --fix .",
+        "build": "npm run build:client && npm run build:server",
+        "build:client": "webpack -p",
+        "build:server": "babel -d ./build ./src/backend -s",
+        "watch": "npm run watch:client & npm run watch:server",
+        "watch:client": "webpack --watch -d",
+        "watch:server": "nodemon --exec babel-node -- ./src/backend/index.js",
+        "start": "node build/index.js"
+    },
+    "dependencies": {
+        "axios": "^0.17.1",
+        "express": "^4.16.2",
+        "prop-types": "^15.6.0",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "react-redux": "^5.0.7",
+        "react-router": "^4.2.0",
+        "react-router-dom": "^4.2.2",
+        "redux": "^3.7.2",
+        "redux-devtools-extension": "^2.13.2",
+        "redux-thunk": "^2.2.0",
+        "semantic-ui-css": "^2.2.14",
+        "semantic-ui-react": "^0.78.2"
+    }
+}
