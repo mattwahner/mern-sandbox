@@ -11,7 +11,7 @@ node {
     }
 
     stage('Push image') {
-        docker.withRegistry('http://localhost:5000') {
+        docker.withRegistry('http://localhost:5000', 'registry-credentials') {
             app.push()
         }
     }
